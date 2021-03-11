@@ -6,7 +6,7 @@ namespace HomeTasks
 {
    public class BranchingStructures
     {
-        public static int CalculationIf(int a, int b)
+        public static int EvaluateGivenArguments(int a, int b)
         {
             if (a > b)
             {
@@ -22,7 +22,7 @@ namespace HomeTasks
             }
         }
 
-        public static int LocationInQuarter(int x, int y)
+        public static int DefineLocationInQuarter(int x, int y)
         {
             int result;
             if (y > 0)
@@ -101,7 +101,7 @@ namespace HomeTasks
 
             leftPart = num / 10;
             rightPart = num % 10;
-
+            int q = leftPart + rightPart;
             if (num < 20)
             {
                 switch (num)
@@ -199,7 +199,7 @@ namespace HomeTasks
                 }
             }
 
-            return numWriting;
+            return q.ToString();
         
     
 

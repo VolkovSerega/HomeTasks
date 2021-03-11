@@ -8,20 +8,22 @@ namespace HomeTask
     {
         public static int EquationSolution(int a, int b)
         {
-           
+            if(b - a == 0)
+            {
+                throw new DivideByZeroException(" b - a  == 0  division by zero");
+            }
             int x = ((5 * a) + (b * b)) / (b - a);
             return x;
         }
 
         public static void Swap(ref int a, ref int b)
         {
-            int c;
-            c = a;
+            int c = a;
             a = b;
-            b = a;
+            b = c;
         }
 
-        public static int[] ResultAndRemainder(int a, int b)
+        public static int[] OutputResultAndRemainder(int a, int b)
         {
             
                 if (b == 0)
@@ -33,26 +35,27 @@ namespace HomeTask
             return new int[2] {division, remainder};
             }
 
-        public static int LinearEquation(int a, int b, int c)
+        public static int CalculateLinearEquation(int a, int b, int c)
         {
+            if (a == 0)
+            {
+                throw new DivideByZeroException(" a == 0  division by zero");
+            }
             int x = (c / a) - (b / a);
             return x;
         }
 
-        public static string StraightLineEquation(int X1, int Y1, int X2, int Y2)
+        public static (int a, int b) GetStraightLineEquation(int X1, int Y1, int X2, int Y2)
         {
             if (X1 == X2)
             {
-                throw new DivideByZeroException(" Деление на ноль");
+                throw new DivideByZeroException("X1 value should not be equal to X2");
             }
+
             int a = (Y2 - Y1) / (X2 - X1);
             int b = -(X1 * Y2 - X2 * Y1) / (X2 - X1);
-            Convert.ToString(a);
-            Convert.ToString(b);
-            return "Y" + a + "X" + b;
-
-
-
+           
+            return (a, b);
         }
     }
     }
