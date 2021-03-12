@@ -60,12 +60,12 @@ namespace HomeTasks
             return new int[3] { a, b, c };
         }
 
-        public static double[] QadraticEquation(int a, int b, int c)
+        public static double[] GetQadraticEquation(double a, double b, double c)
         {
 
             if (a == 0)
             {
-                throw new DivideByZeroException("a==0");
+                throw new ArgumentException("a==0");
             }
 
             double[] result;
@@ -73,18 +73,18 @@ namespace HomeTasks
             if (d == 0)
             {
                 result = new double[1];
-                result[0] = -b / 2.0 / a;
+                result[0] = -b / (2 * a);
             }
             else if (d > 0)
             {
                 result = new double[2];
-                result[0] = (-b - Math.Sqrt(d)) / 2 / a;
-                result[1] = -b + Math.Sqrt(d) / 2 / a;
+                result[0] = (-b - Math.Sqrt(d)) / (2 * a);
+                result[1] = (-b + Math.Sqrt(d)) / (2 * a);
             }
 
             else
             {
-                throw new Exception("d < 0");
+                result = new double[0];
             }
 
             return result;
@@ -170,36 +170,36 @@ namespace HomeTasks
                 switch (rightPart)
                 {
                     case 1:
-                        numWriting += "один ";
+                        numWriting += "один";
                         break;
                     case 2:
-                        numWriting += "два ";
+                        numWriting += "два";
                         break;
                     case 3:
-                        numWriting += "три ";
+                        numWriting += "три";
                         break;
                     case 4:
-                        numWriting += "четыре ";
+                        numWriting += "четыре";
                         break;
                     case 5:
-                        numWriting += "пять ";
+                        numWriting += "пять";
                         break;
                     case 6:
-                        numWriting += "шесть ";
+                        numWriting += "шесть";
                         break;
                     case 7:
-                        numWriting += "семь ";
+                        numWriting += "семь";
                         break;
                     case 8:
-                        numWriting += "восемь ";
+                        numWriting += "восемь";
                         break;
                     case 9:
-                        numWriting += "девять ";
+                        numWriting += "девять";
                         break;
                 }
             }
 
-            return q.ToString();
+            return numWriting;
         
     
 
