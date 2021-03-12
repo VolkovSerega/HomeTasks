@@ -25,15 +25,15 @@ namespace HomeTasks
             }
         }
 
-        public static int[] DivisionA(int a, int i)
+        public static int[] GetNumbersDivisibleByA(int a)
         {
             int[] ar = new int[1000 / a];
             int j = 0;
-            for (i = 1; i <= 1000; i++)
+            for (int i = a; i <= 1000; i+=a)
             {
                 if (i % a == 0)
                 {
-                    ar[j++] = i; 
+                    ar[j] = i; 
                 }
                 j++;
             }
@@ -54,7 +54,7 @@ namespace HomeTasks
 
             return count;
         }
-        public static int GreatestDivisor(int a)
+        public static int GetGreatestDivisor(int a)
         {
             int greatestDiv = 0;
 
@@ -87,21 +87,28 @@ namespace HomeTasks
 
         public static int GetNFibonacciNumber(int n)
         {
-            if (n == 0)
+            int result = 0;
+
+            if (n > 2)
             {
-                return 0;
-            }
-            else if (n == 1)
-            {
-                return 1;
+                int[] fibNumb = new int[n];
+                fibNumb[0] = 1;
+                fibNumb[1] = 1;
+
+                for (int i = 2; i < n; ++i)
+                {
+                    fibNumb[i] = fibNumb[i - 1] + fibNumb[i - 2];
+                }
+                result = fibNumb[n - 1];
             }
             else
             {
-                return GetNFibonacciNumber(n - 1) + GetNFibonacciNumber(n - 2);
+                result = 1;
             }
-        }
 
-        public static int GreatestDivisorEuclidAlgorithm(int a, int b)
+            return result;
+        }
+        public static int GetGreatestDivisorEuclidAlgorithm(int a, int b)
         {
 
             while (b != 0)
@@ -146,19 +153,19 @@ namespace HomeTasks
 
         public static int GetNumberOfOddDigits(int n)
         {
-            int cnt = 0;
-
-            while (n != 0)
+            int counter = 0;
+            for (int i = n; i > 0; i /= 10)
             {
-                if ((n % 10) % 2 != 0)
+                if ((i % 10) % 2 == 1)
                 {
-                    cnt++;
+                    counter++;
                 }
-                n /= 10;
             }
-
-            return n;
+            return counter;
         }
+
+         
+        
 
         public static int GetMirrorOfNum(int num)
         {
@@ -174,10 +181,9 @@ namespace HomeTasks
 
         public static int GetNumbersForWitchSumEvenNumericLessOdd(int a)
         {
-
+            int count = 0;
             int value;
             int b;
-            int count = 0;
             for (int i = 1; i < a; i++)
             {
                 value = i;

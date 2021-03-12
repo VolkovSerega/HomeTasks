@@ -4,7 +4,6 @@ C:\Users\beket\source\repos\HomeTasks\HomeTasks\bin\Debug\netcoreapp3.1\HomeTask
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\bin\Debug\netcoreapp3.1\HomeTasks.runtimeconfig.dev.json
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\bin\Debug\netcoreapp3.1\HomeTasks.dll
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\bin\Debug\netcoreapp3.1\HomeTasks.pdb
-C:\Users\beket\source\repos\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.csprojAssemblyReference.cache
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.AssemblyInfoInputs.cache
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.AssemblyInfo.cs
 C:\Users\beket\source\repos\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.csproj.CoreCompileInputs.cache
