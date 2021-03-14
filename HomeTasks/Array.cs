@@ -46,86 +46,123 @@ namespace HomeTasks
             }
         }
 
-        public static int IndexOfMinimalElementOfArray(int[] array)
+        public static int GetIndexOfMinimalElementOfArray(int[] array)
         {
-            int minIndex = 0;
-            for (int i = 0; i < array.Length; ++i)
+            if (array != null && array.Length != 0)
             {
-                if (minIndex < array[i])
+                int min = array[0];
+                int index = 0;
+                for (int i = 1; i < array.Length; i++)
                 {
-                    minIndex = i;
+                    if (min > array[i])
+                    {
+                        min = array[i];
+                        index = i;
+                    }
                 }
-            }
-            return minIndex;
-        }
-
-        public static int IndexOfMaximalElementOfArray(int[] array)
-        {
-            int maxIdex = 0;
-            for (int i = 0; i < array.Length; ++i)
-            {
-                if (maxIdex < array[i])
-                {
-                    maxIdex = i;
-                }
-            }
-            return maxIdex;
-        }
-
-        public static int SumOddIndexElemArray(int[] array)
-        {
-            int sumEven = 0;
-            for (int i = 0; i < array.Length; i += 2)
-            {
-                sumEven += array[i];
-            }
-            return sumEven;
-        }
-
-        public static void ReversArray(int[] array)
-        {
-            int temp;
-            for (int i = 0; i < array.Length / 2; ++i)
-            {
-                temp = array[i];
-                array[i] = array[array.Length - i - 1];
-                array[array.Length - i - 1] = temp;
-            }
-        }
-
-        public static int SumOddElemArray(int[] array)
-        {
-            int sumOdd = 0;
-            for (int i = 0; i < array.Length; ++i)
-            {
-                if (array[i] % 2 != 0)
-                {
-                    sumOdd += array[i];
-                }
-            }
-            return sumOdd;
-        }
-
-        public static void SwapElemArray(int[] array)
-        {
-            int temp;
-            if (array.Length % 2 == 0)
-            {
-                for (int i = 0; i < (array.Length / 2); ++i)
-                {
-                    temp = array[i];
-                    array[i] = array[array.Length / 2 + i];
-                    array[array.Length / 2 + i] = temp;
-                }
+                return index;
             }
             else
             {
-                for (int i = 0; i < (array.Length / 2); ++i)
+                throw new ArgumentException("Array is null or has zero element");
+            }
+        }
+
+        public static int GetIndexOfMaximalElementOfArray(int[] array)
+        {
+            if (array != null && array.Length != 0)
+            {
+                int max = array[0];
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (max < array[i])
+                    {
+                        max = array[i];
+                    }
+                }
+                return max;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
+        }
+
+        public static int GetSumOddIndexElemArray(int[] array)
+        {
+            if (array != null && array.Length != 0)
+            {
+                int sumEven = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (i % 2 != 0)
+                    {
+                        sumEven += array[i];
+                    }
+                }
+                return sumEven;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
+        }
+
+        public static int[] GetReversArray(int[] array)
+        {
+            if (array != null && array.Length != 0)
+            {
+                for (int i = 0; i < array.Length / 2; i++)
+                {
+                    int temp;
+                    temp = array[i];
+                    array[i] = array[array.Length - i - 1];
+                    array[array.Length - i - 1] = temp;
+                }
+                return array;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
+        }
+
+        public static int GetSumOddElemArray(int[] array)
+        {
+            if (array != null && array.Length != 0)
+            {
+                int sumOdd = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] % 2 != 0)
+                    {
+                        sumOdd++;
+                    }
+                }
+                return sumOdd;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
+        }
+
+        public static int[] SwapElemArray(int[] array)
+        {
+            if (array != null && array.Length != 0)
+            {
+                int temp;
+                for (int i = 0; i < array.Length / 2; i++)
                 {
                     temp = array[i];
-                    array[i] = array[array.Length / 2 + i + 1];
-                    array[array.Length / 2 + i + 1] = temp;
+                    array[i] = array[i + array.Length / 2 + array.Length % 2];
+                    array[i + array.Length / 2 + array.Length % 2] = temp;
                 }
+                return array;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
             }
         }
 
@@ -147,27 +184,32 @@ namespace HomeTasks
             }
         }
 
-        public static void SelectionSort(int[] array)
+        public static int[] SelectionSort(int[] array)
         {
 
-            int temp;
-            int maxIndex;
-            for (int i = 0; i < array.Length; ++i)
+            if (array != null && array.Length != 0)
             {
-                maxIndex = i;
-                for (int j = i; j < array.Length; ++j)
+                int temp;
+                for (int i = 0; i < array.Length - 1; i++)
                 {
-                    if (array[j] > array[maxIndex])
+                    for (int j = i + 1; j < array.Length; j++)
                     {
-                        maxIndex = j;
+                        if (array[i] < array[j])
+                        {
+                            temp = array[i];
+                            array[i] = array[j];
+                            array[j] = temp;
+                        }
                     }
                 }
-                temp = array[i];
-                array[i] = array[maxIndex];
-                array[maxIndex] = temp;
-
+                return array;
+            }
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
             }
         }
+        }
     }
-}
+
 
