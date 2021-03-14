@@ -8,28 +8,42 @@ namespace HomeTasks
     {
         public static int GetMinimalElementOfArray(int[] array)
         {
-            int min = array[0];
-            for (int i = 1; i < array.Length; ++i)
+            if (array != null && array.Length != 0)
             {
-                if (min > array[i])
+                int min = array[0];
+                for (int i = 1; i < array.Length; i++)
                 {
-                    min = array[i];
+                    if (min > array[i])
+                    {
+                        min = array[i];
+                    }
                 }
+                return min;
             }
-            return min;
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
         }
 
-        public static int MaximalElementOfArray(int[] array)
+        public static int GetMaximalElementOfArray(int[] array)
         {
-            int max = array[0];
-            for (int i = 1; i < array.Length; ++i)
+            if (array != null && array.Length != 0)
             {
-                if (max < array[i])
+                int max = array[0];
+                for (int i = 1; i < array.Length; i++)
                 {
-                    max = array[i];
+                    if (max < array[i])
+                    {
+                        max = array[i];
+                    }
                 }
+                return max;
             }
-            return max;
+            else
+            {
+                throw new ArgumentException("Array is null or has zero element");
+            }
         }
 
         public static int IndexOfMinimalElementOfArray(int[] array)
