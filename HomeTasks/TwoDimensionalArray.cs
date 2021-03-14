@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeTask
 {
-    class TwoDimensionalArray
+    public class TwoDimensionalArray
     {
         public static int GetMinValue(int[,] arr)
         {
@@ -66,6 +66,7 @@ namespace HomeTask
                 }
             }
             return minIndexArray;
+            throw new ArgumentException("invalid array");
         }
 
         public static int[] GetMaxIndexArray(int[,] arr)
@@ -89,6 +90,7 @@ namespace HomeTask
                 }
             }
             return maxIndexArray;
+            throw new ArgumentException("invalid array");
         }
         public static int ElementLargerThanNeighbors(int[,] array)
         {
@@ -104,6 +106,7 @@ namespace HomeTask
                 }
             }
             return count;
+            throw new ArgumentException("invalid array");
         }
         public static bool AdditionOfNeighbors(int[,] array, int i, int j)
         {
@@ -140,8 +143,10 @@ namespace HomeTask
                 }
             }
             return transposed;
+            throw new ArgumentException("invalid array");
         }
 
+        
     }
 }
 

@@ -6,7 +6,7 @@ namespace HomeTasks
 {
     public class Array
     {
-        public static int MinimalElementOfArray(int[] array)
+        public static int GetMinimalElementOfArray(int[] array)
         {
             int min = array[0];
             for (int i = 1; i < array.Length; ++i)

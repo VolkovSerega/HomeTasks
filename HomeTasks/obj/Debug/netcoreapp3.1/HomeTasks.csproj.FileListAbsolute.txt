@@ -23,3 +23,4 @@ C:\Users\User\Desktop\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.cspr
 C:\Users\User\Desktop\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.dll
 C:\Users\User\Desktop\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.pdb
 C:\Users\User\Desktop\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.genruntimeconfig.cache
+C:\Users\beket\source\repos\HomeTasks\HomeTasks\obj\Debug\netcoreapp3.1\HomeTasks.csprojAssemblyReference.cache
