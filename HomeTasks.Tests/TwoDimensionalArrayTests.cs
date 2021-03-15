@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace HomeTask.Tests
 {
-    
+
     public class TwoDimensionalArrayTests
     {
         public static int[,] GetMock(int number)
@@ -30,6 +30,23 @@ namespace HomeTask.Tests
                     };
                     break;
 
+                case 3:
+                    result = new int[,]
+                    {
+                        {1, 4, 9 },
+                        {2, 5, 0},
+                        {3, 6, 0 }
+                    };
+                    break;
+                case 4:
+                    result = new int[,]
+                    {
+                        {1, 8, 9},
+                        {50, 5, 12},
+                        {3, 6, 7}
+                    };
+                    break;
+
             }
             return result;
         }
@@ -44,6 +61,18 @@ namespace HomeTask.Tests
             Assert.AreEqual(actual, excpected);
         }
 
+        [TestCase(null)]
+        [TestCase(7)]
+        public void OutputMinElementsSecondArrays_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+                TwoDimensionalArray.GetMinValue(array);
+            });
+        }
+
 
         [TestCase(1, 9)]
         [TestCase(2, 50)]
@@ -53,6 +82,18 @@ namespace HomeTask.Tests
             int actual = TwoDimensionalArray.GetMaxValue(array);
 
             Assert.AreEqual(actual, excpected);
+        }
+
+        [TestCase(null)]
+        [TestCase(7)]
+        public void OutputMaxnElementsSecondArrays_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+                TwoDimensionalArray.GetMaxValue(array);
+            });
         }
 
 
@@ -66,6 +107,18 @@ namespace HomeTask.Tests
             Assert.AreEqual(actual, excpected);
         }
 
+        [TestCase(null)]
+        [TestCase(7)]
+        public void OutputIndexMinElementsSecondArrays_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+                TwoDimensionalArray.GetMinIndexArray(array);
+            });
+        }
+
         [TestCase(1, new int[] { 2, 0 })]
         [TestCase(2, new int[] { 0, 1 })]
         public void GetIndexOfTheMaximumElementArray_WhenArrayPassed_ShouldReturnIndexMaxElement(int mockNumber, int[] excpected)
@@ -76,29 +129,67 @@ namespace HomeTask.Tests
             Assert.AreEqual(actual, excpected);
         }
 
-        
-        [TestCase(1, 5)]
-        [TestCase(2, 7)]
-        [TestCase(5, 0)]
-        public void CountNumberOfElementsGreaterAllNeighbors(int mockNumber, int expected)
+        [TestCase(null)]
+        [TestCase(7)]
+        public void OutputIdexMaxElementsSecondArrays_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
         {
-            int[,] arr = TwoDimensionalArrayTests.GetMock(mockNumber);
-            int actual = TwoDimensionalArray.ElementLargerThanNeighbors(arr);
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+                TwoDimensionalArray.GetMaxIndexArray(array);
+            });
+        }
+
+
+        [TestCase(1, 2)]
+        [TestCase(2, 2)]
+        [TestCase(3, 2)]
+        public void FindingNumberMaxElementsSecond_WhenAraaysLoaded_ShoudReternCountsBiggestElementsForNeighbors(int mockNumber, int expected)
+        {
+            int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+            int actual = TwoDimensionalArray.FindingNumberMaxElementsSecond(array);
 
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCase(null)]
+        [TestCase(7)]
+        public void FindingNumberMaxElementsSecond_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
 
-        [TestCase(3, 3)]
-        [TestCase(0, 0)]
-        [TestCase(5, 6)]
-        public void FlipAnArrayRelativeToItsMainDiagonal_WhenArrayPassed_ShouldReturnRelativeArrayToMainDiagonal(int mockNumber, int mockExpected)
+                TwoDimensionalArray.FindingNumberMaxElementsSecond(array);
+            });
+        }
+
+
+        [TestCase(1, 3)]
+        [TestCase(2, 4)]
+        public void OutputTransposeMatrix_WhenAraaysLoaded_ShoudReternTransposeMatrix(int mockNumber, int mockNumber1)
         {
             int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
-            int[,] expected = TwoDimensionalArrayTests.GetMock(mockExpected);
+
+            int[,] expected = TwoDimensionalArrayTests.GetMock(mockNumber1);
+
             int[,] actual = TwoDimensionalArray.TransposeMatrix(array);
 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(null)]
+        [TestCase(7)]
+        public void OutputTransposeMatrix_WhenAraayLenghtIOrLenghtJorAraayNull_ShoudReternArgumentException(int mockNumber)
+        {
+            Assert.Throws<ArgumentException>(() =>
+            {
+                int[,] array = TwoDimensionalArrayTests.GetMock(mockNumber);
+
+                TwoDimensionalArray.TransposeMatrix(array);
+            });
         }
     }
 
